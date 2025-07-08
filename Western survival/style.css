@@ -1,0 +1,163 @@
+body {
+    background-color: #f4a460; /* Sandy Brown */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; /* Empêche le défilement si l'animation dépasse */
+}
+
+.global-background-animation {
+    position: fixed; /* Fixe l'animation par rapport à la fenêtre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="5" fill="%23CD853F" opacity="0.5"/><circle cx="80" cy="50" r="7" fill="%23CD853F" opacity="0.4"/><circle cx="50" cy="80" r="6" fill="%23CD853F" opacity="0.6"/></svg>'); /* Petits cercles pour la poussière */
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: dust-flow 30s linear infinite;
+    opacity: 0.3; /* Rendre l'animation subtile */
+    z-index: -1; /* Place l'animation derrière tout le contenu */
+}
+
+@keyframes dust-flow {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+#game-container {
+    position: relative;
+    border: 5px solid #8B4513; /* Saddle Brown */
+    background-color: #DEB887; /* Burly Wood */
+    padding: 20px;
+    text-align: center;
+    width: 840px; /* Largeur fixe pour contenir le canvas (800 + 2*20 padding) */
+    height: 640px; /* Hauteur fixe pour contenir le canvas (600 + 2*20 padding) */
+    box-sizing: border-box;
+    z-index: 0; /* Assure que le conteneur du jeu est au-dessus de l'animation */
+}
+
+#main-menu h1 {
+    color: #8B4513; /* Saddle Brown */
+    font-size: 2.5em;
+}
+
+#main-menu button, #main-menu .donate-btn, .menu-panel button {
+    background-color: #CD853F; /* Peru */
+    border: 2px solid #8B4513; /* Saddle Brown */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#main-menu button:hover, #main-menu .donate-btn:hover, .menu-panel button:hover {
+    background-color: #A0522D; /* Sienna */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.menu-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(222, 184, 135, 0.95); /* Burly Wood with opacity */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligner en haut */
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permettre le défilement si le contenu est trop grand */
+    z-index: 2; /* Les panneaux de menu sont au-dessus du canvas */
+}
+
+#game-over-screen {
+    border: 5px solid #8B4513;
+    padding: 40px;
+    background-color: #DEB887;
+    max-width: 500px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+#game-over-screen h2 {
+    color: #DC143C; /* Crimson */
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+#game-over-screen p {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.menu-panel h2 {
+    color: #8B4513;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px; /* Espacement sous le titre */
+}
+
+.menu-panel ul {
+    list-style: none;
+    padding: 0;
+    width: 90%; /* Utiliser une plus grande largeur */
+    max-width: 700px; /* Limiter la largeur sur les très grands écrans */
+}
+
+.menu-panel li {
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    line-height: 1.4; /* Améliorer l'espacement des lignes */
+}
+
+.rules-section {
+    margin-bottom: 15px;
+    width: 95%; /* Utiliser presque toute la largeur disponible */
+    max-width: 700px; /* Limiter la largeur sur les très grands écrans */
+    text-align: left; /* Aligner le texte à gauche dans les sections */
+}
+
+.rules-section h3 {
+    border-bottom: 1px solid #8B4513;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.train-color-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border: 1px solid #333;
+}
+
+.arrow {
+    margin: 0 10px;
+}
+
+#game-canvas {
+    background-color: #f4a460; /* Sandy Brown */
+    display: block; /* Toujours visible par défaut */
+    width: 800px; /* Dimensions fixes pour le canvas */
+    height: 600px;
+    position: relative; /* Pour que z-index fonctionne */
+    z-index: 1; /* Au-dessus du conteneur du jeu */
+    border: 2px solid blue; /* Bordure temporaire pour le débogage */
+}

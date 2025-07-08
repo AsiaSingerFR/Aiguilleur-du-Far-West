@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiguilleur du Far West</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="global-background-animation"></div>
+    <div id="game-container">
+        <div id="main-menu" class="menu-panel">
+            <h1>Aiguilleur du Far West</h1>
+            <p>Meilleur Score : <span id="high-score">0</span></p>
+            <button id="start-game-btn">Commencer à jouer</button>
+            <button id="rules-btn">Règles du jeu</button>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lbdn.finally804@passinbox.com&item_name=Donation+for+Aiguilleur+du+Far+West" target="_blank" class="donate-btn">Faire un don</a>
+        </div>
+
+        <div id="rules-menu" class="menu-panel hidden">
+            <h2>Règles du Jeu</h2>
+            <div class="rules-section">
+                <h3>Objectif</h3>
+                <p>Guidez chaque train vers sa gare de destination pour marquer des points. La partie s'arrête à la première erreur !</p>
+            </div>
+            <div class="rules-section">
+                <h3>Légende des Trains</h3>
+                <ul>
+                    <li><span class="train-color-box" style="background-color:#FFD700;"></span> Train Jaune <span class="arrow">►</span> <strong>Mine</strong></li>
+                    <li><span class="train-color-box" style="background-color:#4682B4;"></span> Train Bleu <span class="arrow">►</span> <strong>Ville</strong></li>
+                    <li><span class="train-color-box" style="background-color:#A0522D;"></span> Train Marron <span class="arrow">►</span> <strong>Scierie</strong></li>
+                    <li><span class="train-color-box" style="background-color:#228B22;"></span> Train Vert <span class="arrow">►</span> <strong>Ranch</strong></li>
+                </ul>
+            </div>
+            <div class="rules-section">
+                <h3>Conditions de Fin de Partie</h3>
+                <ul>
+                    <li>Un train arrive à une mauvaise destination.</li>
+                    <li>Un train arrive au <strong>Pont Écroulé</strong>.</li>
+                </ul>
+            </div>
+            <div class="rules-section">
+                <h3>Difficulté</h3>
+                <ul>
+                    <li>Tous les <strong>500 points</strong>, l'intervalle d'arrivée des trains diminue.</li>
+                    <li>Tous les <strong>1000 points</strong>, la vitesse de tous les trains augmente.</li>
+                </ul>
+            </div>
+            <button id="back-to-menu-btn">Retour</button>
+        </div>
+
+        <div id="game-over-screen" class="menu-panel hidden">
+            <h2>GAME OVER</h2>
+            <p>Score final : <span id="final-score">0</span></p>
+            <p>Meilleur Score : <span id="final-high-score">0</span></p>
+            <button id="restart-btn">Rejouer</button>
+        </div>
+
+        <canvas id="game-canvas" width="800" height="600"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
